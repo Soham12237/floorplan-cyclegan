@@ -1,0 +1,9 @@
+graph LR
+  I["Input<br/>256x256x3"] --> C1["7x7 conv, 64<br/>reflect pad + IN + ReLU"]
+  C1 --> D1["3x3 conv s2, 128<br/>IN + ReLU"]
+  D1 --> D2["3x3 conv s2, 256<br/>IN + ReLU"]
+  D2 --> R["9 x ResNet block<br/>256 ch @ 64x64<br/>conv-IN-ReLU-conv-IN + skip"]
+  R --> U1["3x3 deconv s2, 128<br/>IN + ReLU"]
+  U1 --> U2["3x3 deconv s2, 64<br/>IN + ReLU"]
+  U2 --> O["7x7 conv, 3<br/>Tanh"]
+  O --> Out["Output<br/>256x256x3"]

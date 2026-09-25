@@ -1,0 +1,13 @@
+.venv/
+.tmp/
+__pycache__/
+*.pyc
+data/
+logs/
+demo_checkpoints/
+wandb/
+
+# keep only the latest generators (used by scripts/demo.py)
+checkpoints/**/*.pth
+!checkpoints/floorplan_cyclegan/latest_net_G_A.pth
+!checkpoints/floorplan_cyclegan/latest_net_G_B.pth

@@ -1,0 +1,7 @@
+graph LR
+  X["Image<br/>256x256x3"] --> L1["4x4 conv s2, 64<br/>LeakyReLU"]
+  L1 --> L2["4x4 conv s2, 128<br/>IN + LeakyReLU"]
+  L2 --> L3["4x4 conv s2, 256<br/>IN + LeakyReLU"]
+  L3 --> L4["4x4 conv s1, 512<br/>IN + LeakyReLU"]
+  L4 --> L5["4x4 conv s1, 1"]
+  L5 --> P["30x30 patch map<br/>real / fake per 70x70 patch"]

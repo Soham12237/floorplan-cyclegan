@@ -1,0 +1,11 @@
+graph LR
+  A["Real A"] -->|"G_A"| FB["Fake B"]
+  FB -->|"G_B"| RA["Reconstructed A"]
+  B["Real B"] -->|"G_B"| FA["Fake A"]
+  FA -->|"G_A"| RB["Reconstructed B"]
+  RA --> LC["Cycle loss, L1 x10<br/>Recon A vs Real A<br/>Recon B vs Real B"]
+  RB --> LC
+  FB --> DB["D_B PatchGAN<br/>Real B vs Fake B"]
+  FA --> DA["D_A PatchGAN<br/>Real A vs Fake A"]
+  DB --> LG["Adversarial loss<br/>LSGAN"]
+  DA --> LG
